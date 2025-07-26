@@ -7,11 +7,13 @@ public class LaserSwitch : MonoBehaviour
     private GameObject switchIcon;
     private AudioSource playBeep;
     public bool lasersAreOff = false;
+    public GameObject Turret;
 
 
 
     private void Start()
     {
+        Destroy(Turret);
         switchIcon = this.transform.Find("red").gameObject;
         switchIcon.GetComponent<SpriteRenderer>().enabled = true;
         switchIcon = this.transform.Find("green").gameObject;
@@ -24,9 +26,10 @@ public class LaserSwitch : MonoBehaviour
     {
         playBeep.Play();
         lasersAreOff = true;
+        Destroy(Turret);
     }
 
-    public void OnTriggerStay(Collider other)
+    /*public void OnTriggerStay(Collider other)
     {
         StopAllCoroutines();
         switchIcon = this.transform.Find("green").gameObject;
@@ -43,4 +46,6 @@ public class LaserSwitch : MonoBehaviour
         switchIcon = this.transform.Find("green").gameObject;
         switchIcon.GetComponent<SpriteRenderer>().enabled = false;
     }
+}
+    */
 }

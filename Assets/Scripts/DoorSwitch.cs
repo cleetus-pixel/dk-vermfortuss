@@ -8,6 +8,7 @@ public class DoorSwitch : MonoBehaviour
     
     //Tells this script where to find the DoorTrigger script.
     public DoorTrigger door;
+    public DoorTrigger door1;
     //Variable used for keeping track of the red and green icons
     private GameObject switchIcon;
     private AudioSource playBeep;

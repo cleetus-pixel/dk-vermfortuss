@@ -6,6 +6,8 @@ using UnityEngine.Events;
 public class Laser : MonoBehaviour
 {
     private Collider playerCollider;
+    public Vector3 startposition;
+    public GameObject codey;
     private GameOver game;
     LineRenderer lineRenderer;
     public float range = 50f;
@@ -18,6 +20,7 @@ public class Laser : MonoBehaviour
     {
         lineRenderer = GetComponent<LineRenderer>();
         playerDeath = false;
+        startposition = codey.transform.position;
     }
     private void Start()
     {
@@ -50,8 +53,11 @@ public class Laser : MonoBehaviour
             //if the object the laser collides with is the player, set up the player death and reset.
             if (hit.collider == playerCollider && !playerDeath)
             {
-                playerDeath = true;
+                //playerDeath = true;
+
                 OnHitPlayer.Invoke();
+                codey.transform.position = startposition;
+            
                 //game.PlayerHit();
             }
         }
